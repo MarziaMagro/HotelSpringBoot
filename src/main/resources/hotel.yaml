@@ -8,6 +8,7 @@ paths:
   /rooms:
     get:
       summary: Ottieni tutte le stanze
+      operationId: getRooms
       responses:
         '200':
           description: Lista di stanze
@@ -19,6 +20,7 @@ paths:
                   $ref: '#/components/schemas/RoomDto'
     post:
       summary: Aggiungi una nuova stanza
+      operationId: addRoom
       requestBody:
         required: true
         content:
@@ -28,10 +30,16 @@ paths:
       responses:
         '201':
           description: Stanza creata con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDto'
 
   /rooms/available:
     get:
       summary: Ottieni le stanze disponibili
+      operationId: getAvailableRooms
+      description: metodo che ritorna la stanza se la disponibilità è TRUE
       responses:
         '200':
           description: Lista delle stanze disponibili
@@ -45,6 +53,7 @@ paths:
   /customers:
     get:
       summary: Ottieni tutti i clienti
+      operationId: getAllCustomers
       responses:
         '200':
           description: Lista dei clienti
@@ -56,6 +65,7 @@ paths:
                   $ref: '#/components/schemas/CustomerDto'
     post:
       summary: Aggiungi un nuovo cliente
+      operationId: addCustomer
       requestBody:
         required: true
         content:
@@ -65,10 +75,15 @@ paths:
       responses:
         '201':
           description: Cliente creato con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDto'
 
   /reservations:
     get:
       summary: Ottieni tutte le prenotazioni
+      operationId: getAllReservations
       responses:
         '200':
           description: Lista delle prenotazioni
@@ -80,6 +95,7 @@ paths:
                   $ref: '#/components/schemas/ReservationDto'
     post:
       summary: Registra una nuova prenotazione
+      operationId: addReservation
       requestBody:
         required: true
         content:
@@ -89,10 +105,15 @@ paths:
       responses:
         '201':
           description: Prenotazione registrata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationDto'
 
   /reservations/{id}:
     delete:
       summary: Cancella una prenotazione
+      operationId: deleteReservation
       parameters:
         - in: path
           name: id
@@ -103,6 +124,7 @@ paths:
         '204':
           description: Prenotazione cancellata
 
+
 components:
   schemas:
     RoomDto:
@@ -112,10 +134,11 @@ components:
           type: integer
         roomNumber:
           type: string
+        available:
+          type: boolean
         type:
           $ref: '#/components/schemas/RoomType'
-        availability:
-          $ref: '#/components/schemas/Availability'
+
 
     CustomerDto:
       type: object
@@ -150,15 +173,10 @@ components:
           type: string
           format: date
 
+
     RoomType:
       type: string
       enum:
         - SINGLE
         - DOUBLE
         - SUITE
-
-    Availability:
-      type: string
-      enum:
-        - AVAILABLE
-        - RESERVED

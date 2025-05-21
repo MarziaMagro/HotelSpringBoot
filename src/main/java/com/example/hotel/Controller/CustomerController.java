@@ -17,11 +17,11 @@ public class CustomerController implements CustomersApi {
         this.customerService = customerService;
     }
 
-    @Override
-    public ResponseEntity<List<CustomerDto>> customersGet() {
-        List<CustomerDto> customers = customerService.getAllCustomers();
-        return ResponseEntity.ok(customers);
-    }
+//    @Override
+//    public ResponseEntity<List<CustomerDto>> customersGet() {
+//        List<CustomerDto> customers = customerService.getAllCustomers();
+//        return ResponseEntity.ok(customers);
+//    }
 
 
 }

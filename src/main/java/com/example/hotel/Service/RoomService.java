@@ -1,6 +1,4 @@
 package com.example.hotel.Service;
-
-import com.example.hotel.model.Availability;
 import com.example.hotel.model.RoomDto;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +8,7 @@ import java.util.List;
 public class RoomService {
     //TODO: GET /rooms
     public List<RoomDto> getAllRooms() {
+
         return null;
     }
 
@@ -24,7 +23,7 @@ public class RoomService {
     }
 
     //TODO:
-    public RoomDto updateRoomAvailability(Integer id, Availability availability) {
+    public RoomDto updateRoomAvailability(Integer id, boolean availability) {
         return null;
     }
 

@@ -11,9 +11,9 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement
     private Integer id;
     private RoomType roomType;
-    private Availability availability;
+    private boolean availability;
 
-    public Room(Integer id, RoomType roomType, Availability availability) {
+    public Room(Integer id, RoomType roomType, boolean availability) {
         this.id = id;
         this.roomType = roomType;
         this.availability = availability;
@@ -43,12 +43,12 @@ public class Room {
     }
 
 
-    public Availability getAvailability() {
+    public boolean getAvailability() {
 
         return availability;
     }
 
-    public void setAvailability(Availability availability) {
+    public void setAvailability(boolean availability) {
 
         this.availability = availability;
     }
