@@ -1,13 +1,7 @@
-//package com.example.hotel.Mapper;
-//
-//import com.example.hotel.Entity.Customer;
-//import com.example.hotel.model.CustomerDto;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class CustomerMapping {
-//
+package com.example.hotel.Mapper;
+
+public class CustomerMapping {
+
 //    public static CustomerDto convToDto(Customer customer) {
 //        CustomerDto customerDto = new CustomerDto();
 //        customerDto.setId(customer.getId());
@@ -42,4 +36,4 @@
 //        }
 //        return listDto;
 //    }
-//}
+}

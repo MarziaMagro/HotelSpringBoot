@@ -1,19 +1,16 @@
-//package com.example.hotel.Service;
-//import com.example.hotel.Repository.RoomRepository;
-//import com.example.hotel.model.RoomDto;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//public class RoomService {
-//
-//    private final RoomRepository roomRepository;
-//
-//    public RoomService(RoomRepository roomRepository) {
-//        this.roomRepository = roomRepository;
-//    }
-//
+package com.example.hotel.Service;
+import com.example.hotel.Repository.RoomRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RoomService {
+
+    private final RoomRepository roomRepository;
+
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
+
 //
 //    //TODO: GET /rooms
 //    public List<RoomDto> getAllRooms() {
@@ -25,12 +22,12 @@
 //        return null;
 //    }
 //
-//////    //TODO:  POST /rooms
-//////    public RoomDto createRoom(RoomDto roomDto) {
-//////            Room room = RoomMapping.;
-//////            room = roomRepository.save(room);
-//////            return RoomMapping.convToDto(room);
-////    }
+//    //TODO:  POST /rooms
+//    public RoomDto createRoom(RoomDto roomDto) {
+//            Room room = RoomMapping.;
+//            room = roomRepository.save(room);
+//            return RoomMapping.convToDto(room);
+//    }
 //
 //    //TODO:
 //    public RoomDto updateRoomAvailability(Integer id, boolean availability) {
@@ -41,4 +38,4 @@
 //    public RoomDto getRoomById(Integer id) {
 //        return null;
 //    }
-//}
+}

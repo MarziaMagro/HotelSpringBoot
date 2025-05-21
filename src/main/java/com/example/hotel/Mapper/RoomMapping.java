@@ -1,15 +1,7 @@
-//package com.example.hotel.Mapper;
-//
-//import com.example.hotel.Entity.Customer;
-//import com.example.hotel.Entity.Room;
-//import com.example.hotel.Entity.RoomType;
-//import com.example.hotel.model.RoomDto;
-//import com.example.hotel.model.RoomType;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class RoomMapping {
-//
+package com.example.hotel.Mapper;
+
+public class RoomMapping {
+
 //    public static RoomDto convToDto(Room room) {
 //        RoomDto roomDto = new RoomDto();
 //        roomDto.setId(room.getId());
@@ -55,5 +47,5 @@
 //        if (dtoEnum == null) return null;
 //        return IceCreamTaste.valueOf(dtoEnum.name());
 //    }
-//
-//}
+
+}

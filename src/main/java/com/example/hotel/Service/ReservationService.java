@@ -1,23 +1,18 @@
-//package com.example.hotel.Service;
-//
-//import com.example.hotel.Entity.Reservation;
-//import com.example.hotel.Mapper.ReservationMapping;
-//import com.example.hotel.Repository.ReservationRepository;
-//import com.example.hotel.model.ReservationDto;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//public class ReservationService {
-//
-//    private final ReservationRepository reservationRepository;
-//
-//    @Autowired
-//    public ReservationService(ReservationRepository reservationRepository) {
-//        this.reservationRepository = reservationRepository;
-//    }
+package com.example.hotel.Service;
+
+import com.example.hotel.Repository.ReservationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ReservationService {
+
+    private final ReservationRepository reservationRepository;
+
+    @Autowired
+    public ReservationService(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
 //
 //    // TODO:  GET /reservations
 //    public List<ReservationDto> getAllReservations() {
@@ -50,6 +45,6 @@
 //    public void updateRoomAvailabilityAfterReservation(Integer id) {
 //
 //    }
-//
-//
-//}
+
+
+}

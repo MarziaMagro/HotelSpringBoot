@@ -1,12 +1,6 @@
-//package com.example.hotel.Mapper;
-//
-//import com.example.hotel.Entity.Reservation;
-//import com.example.hotel.model.ReservationDto;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class ReservationMapping {
+package com.example.hotel.Mapper;
+
+public class ReservationMapping {
 //    public static ReservationDto convToDto(Reservation reservation) {
 //        ReservationDto reservationDto = new ReservationDto();
 //        reservationDto.setId(reservation.getId());
@@ -38,4 +32,4 @@
 //        }
 //        return listDto;
 //    }
-//}
+}
