@@ -71,9 +71,9 @@ components:
           type: boolean
           example: true
         type:
-          $ref: '#/components/schemas/RoomType'
+          $ref: '#/components/schemas/RoomTypeEnum'
 
-    RoomType:
+    RoomTypeEnum:
       type: string
       enum:
         - SINGLE

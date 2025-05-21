@@ -11,11 +11,13 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement
     private Integer id;
     private RoomType roomType;
+    private String roomNumber;
     private boolean availability;
 
-    public Room(Integer id, RoomType roomType, boolean availability) {
+    public Room(Integer id, RoomType roomType, String roomNumber, boolean availability) {
         this.id = id;
         this.roomType = roomType;
+        this.roomNumber = roomNumber;
         this.availability = availability;
     }
 
@@ -51,5 +53,13 @@ public class Room {
     public void setAvailability(boolean availability) {
 
         this.availability = availability;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }
