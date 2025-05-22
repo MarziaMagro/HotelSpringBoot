@@ -146,6 +146,7 @@
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
 								<generateApiUtil>true</generateApiUtil>
+								<skipDefaultInterface>true</skipDefaultInterface>
 							</configOptions>
 							<output>${project.basedir}/target/generated-sources/openapi/customer</output>
 						</configuration>
@@ -167,6 +168,7 @@
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
 								<generateApiUtil>true</generateApiUtil>
+								<skipDefaultInterface>true</skipDefaultInterface>
 							</configOptions>
 							<output>${project.basedir}/target/generated-sources/openapi/room</output>
 						</configuration>
@@ -174,22 +176,23 @@
 
 					<!-- RESERVATION -->
 					<execution>
-						<id>generate-reservationEntity</id>
+						<id>generate-reservation</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/reservationEntity.yaml</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/reservation.yaml</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>com.example.reservationEntity.api</apiPackage>
-							<modelPackage>com.example.reservationEntity.model</modelPackage>
-							<invokerPackage>com.example.reservationEntity.invoker</invokerPackage>
+							<apiPackage>com.example.reservation.api</apiPackage>
+							<modelPackage>com.example.reservation.model</modelPackage>
+							<invokerPackage>com.example.reservation.invoker</invokerPackage>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
 								<generateApiUtil>true</generateApiUtil>
+								<skipDefaultInterface>true</skipDefaultInterface>
 							</configOptions>
-							<output>${project.basedir}/target/generated-sources/openapi/reservationEntity</output>
+							<output>${project.basedir}/target/generated-sources/openapi/reservation</output>
 						</configuration>
 					</execution>
 				</executions>
