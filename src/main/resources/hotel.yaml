@@ -1,0 +1,200 @@
+openapi: 3.0.3
+info:
+  title: Hotel management API
+  version: 1.0.0
+  description: API per la gestione dell'hotel
+
+paths:
+  /customers:
+    get:
+      tags:
+        - "Customer"
+      summary: Ottieni tutti i clienti
+      operationId: getAllCustomers
+      responses:
+        '200':
+          description: Lista dei clienti
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerDto'
+    post:
+      tags:
+        - "Customer"
+      summary: Aggiungi un nuovo cliente
+      operationId: addCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDto'
+      responses:
+        '201':
+          description: Cliente creato con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDto'
+
+  /reservations:
+    get:
+      tags:
+        - "Reservation"
+      summary: Ottieni tutte le prenotazioni
+      operationId: getAllReservations
+      responses:
+        '200':
+          description: Lista delle prenotazioni
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReservationDto'
+    post:
+      tags:
+        - "Reservation"
+      summary: Registra una nuova prenotazione
+      operationId: addReservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+      responses:
+        '201':
+          description: Prenotazione registrata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationDto'
+
+  /reservations/{id}:
+    delete:
+      tags:
+        - "Reservation"
+      summary: Cancella una prenotazione
+      operationId: deleteReservation
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Prenotazione cancellata
+
+  /rooms:
+    get:
+      tags:
+        - "Rooms"
+      summary: Ottieni tutte le stanze
+      operationId: getRooms
+      responses:
+        '200':
+          description: Lista di stanze
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+    post:
+      tags:
+        - "Rooms"
+      summary: Aggiungi una nuova stanza
+      operationId: addRoom
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoomDto'
+      responses:
+        '201':
+          description: Stanza creata con successo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDto'
+
+  /rooms/available:
+    get:
+      tags:
+        - "Rooms"
+      summary: Ottieni le stanze disponibili
+      operationId: getAvailableRooms
+      description: Ritorna la lista delle stanze con disponibilità impostata a TRUE
+      responses:
+        '200':
+          description: Lista delle stanze disponibili
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+
+components:
+  schemas:
+    RoomDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        roomNumber:
+          type: string
+          example: "101A"
+        available:
+          type: boolean
+          example: true
+        roomType:
+          type: string
+          enum:
+            - SINGLE
+            - DOUBLE
+            - SUITE
+
+    ReservationDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        roomId:
+          type: integer
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        customer:
+          $ref: '#/components/schemas/CustomerDto'
+
+    CustomerDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstName:
+          type: string
+          example: "Mario"
+        lastName:
+          type: string
+          example: "Rossi"
+        email:
+          type: string
+          format: email
+          example: "mario.rossi@example.com"
+        reservationIds:
+          type: array
+          items:
+            type: integer
+          example: [101, 102]

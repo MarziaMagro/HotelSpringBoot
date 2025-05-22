@@ -11,7 +11,7 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
-//
+
 //    //TODO: GET /rooms
 //    public List<RoomDto> getAllRooms() {
 //        return null;

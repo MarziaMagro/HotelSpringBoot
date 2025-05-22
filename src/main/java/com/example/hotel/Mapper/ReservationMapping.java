@@ -1,7 +1,6 @@
 package com.example.hotel.Mapper;
-import com.example.hotel.Entity.CustomerEntity;
 import com.example.hotel.Entity.ReservationEntity;
-import com.example.reservation.model.ReservationDto;
+import com.example.hotel.model.ReservationDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,7 @@ public class ReservationMapping {
     public static ReservationDto convToDto(ReservationEntity reservation) {
         ReservationDto reservationDto = new ReservationDto();
         reservationDto.setId(reservation.getId());
-        //reservationDto.setCustomer(CustomerMapping.convToDto(reservation.getCustomer()));
+        reservationDto.setCustomer(CustomerMapping.convToDto(reservation.getCustomer()));
         reservationDto.setRoomId(reservation.getId());
         reservationDto.setStartDate(reservation.getCheckInDate());
         reservationDto.setEndDate(reservation.getCheckOutDate());
@@ -24,7 +23,7 @@ public class ReservationMapping {
         reservation.setRoomId(reservationDto.getRoomId());
         reservation.setCheckOutDate(reservationDto.getEndDate());
         reservation.setCheckInDate(reservationDto.getStartDate());
-        //reservation.setCustomer(reservationDto.getCustomer());
+        reservation.setCustomer(CustomerMapping.convToEntity(reservationDto.getCustomer()));
         return reservation;
     }
 

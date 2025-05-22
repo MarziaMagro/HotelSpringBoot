@@ -3,7 +3,7 @@ package com.example.hotel.Service;
 import com.example.hotel.Entity.ReservationEntity;
 import com.example.hotel.Mapper.ReservationMapping;
 import com.example.hotel.Repository.ReservationRepository;
-import com.example.reservation.model.ReservationDto;
+import com.example.hotel.model.ReservationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

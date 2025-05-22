@@ -130,71 +130,28 @@
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<version>7.9.0</version>
 				<executions>
-					<!-- CUSTOMER -->
+					<!-- HOTEL -->
 					<execution>
-						<id>generate-customer</id>
+						<id>generate-hotel-api</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/customer.yaml</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/hotel.yaml</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>com.example.customer.api</apiPackage>
-							<modelPackage>com.example.customer.model</modelPackage>
-							<invokerPackage>com.example.customer.invoker</invokerPackage>
+							<apiPackage>com.example.hotel.api</apiPackage>
+							<modelPackage>com.example.hotel.model</modelPackage>
+							<invokerPackage>com.example.hotel.invoker</invokerPackage>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
 								<generateApiUtil>true</generateApiUtil>
 								<skipDefaultInterface>true</skipDefaultInterface>
 							</configOptions>
-							<output>${project.basedir}/target/generated-sources/openapi/customer</output>
+							<output>${project.basedir}/target/generated-sources/openapi/hotel</output>
 						</configuration>
 					</execution>
 
-					<!-- ROOM -->
-					<execution>
-						<id>generate-room</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/room.yaml</inputSpec>
-							<generatorName>spring</generatorName>
-							<apiPackage>com.example.room.api</apiPackage>
-							<modelPackage>com.example.room.model</modelPackage>
-							<invokerPackage>com.example.room.invoker</invokerPackage>
-							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<useSpringBoot3>true</useSpringBoot3>
-								<generateApiUtil>true</generateApiUtil>
-								<skipDefaultInterface>true</skipDefaultInterface>
-							</configOptions>
-							<output>${project.basedir}/target/generated-sources/openapi/room</output>
-						</configuration>
-					</execution>
-
-					<!-- RESERVATION -->
-					<execution>
-						<id>generate-reservation</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/reservation.yaml</inputSpec>
-							<generatorName>spring</generatorName>
-							<apiPackage>com.example.reservation.api</apiPackage>
-							<modelPackage>com.example.reservation.model</modelPackage>
-							<invokerPackage>com.example.reservation.invoker</invokerPackage>
-							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<useSpringBoot3>true</useSpringBoot3>
-								<generateApiUtil>true</generateApiUtil>
-								<skipDefaultInterface>true</skipDefaultInterface>
-							</configOptions>
-							<output>${project.basedir}/target/generated-sources/openapi/reservation</output>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 

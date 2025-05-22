@@ -1,6 +1,6 @@
 package com.example.hotel.Mapper;
 
-import com.example.customer.model.CustomerDto;
+import com.example.hotel.model.CustomerDto;
 import com.example.hotel.Entity.CustomerEntity;
 import com.example.hotel.Entity.ReservationEntity;
 

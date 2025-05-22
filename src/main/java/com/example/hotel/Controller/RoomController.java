@@ -1,7 +1,7 @@
 package com.example.hotel.Controller;
-import com.example.room.api.RoomsApi;
-import com.example.room.model.RoomDto;
+import com.example.hotel.model.RoomDto;
 import org.springframework.http.ResponseEntity;
+import com.example.hotel.api.RoomsApi;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

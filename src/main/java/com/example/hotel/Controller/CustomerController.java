@@ -1,6 +1,6 @@
 package com.example.hotel.Controller;
-import com.example.customer.api.CustomersApi;
-import com.example.customer.model.CustomerDto;
+import com.example.hotel.api.CustomersApi;
+import com.example.hotel.model.CustomerDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
