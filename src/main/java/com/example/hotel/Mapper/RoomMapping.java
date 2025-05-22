@@ -1,5 +1,9 @@
 package com.example.hotel.Mapper;
 
+import com.example.hotel.Entity.RoomEntity;
+import com.example.hotel.Entity.RoomType;
+import com.example.room.model.RoomDto;
+
 public class RoomMapping {
 
 //    public static RoomDto convToDto(Room room) {
@@ -38,14 +42,14 @@ public class RoomMapping {
 //    }
 //
 //
-//    public static RoomDto.RoomTypeEnum toDtoEnum(RoomType roomtype) {
-//        if (roomtype == null) return null;
-//        return RoomDto.RoomTypeEnum.valueOf(roomtype.name());
-//    }
-//
-//    public static Room toEntityEnum(IceCreamDto.IceCreamTasteEnum dtoEnum) {
-//        if (dtoEnum == null) return null;
-//        return IceCreamTaste.valueOf(dtoEnum.name());
-//    }
+    public static RoomDto.RoomTypeEnum toDtoEnum(RoomType roomtype) {
+        if (roomtype == null) return null;
+        return RoomDto.RoomTypeEnum.valueOf(roomtype.name());
+    }
+
+    public static RoomType toEntityEnum(RoomDto.RoomTypeEnum dtoEnum) {
+        if (dtoEnum == null) return null;
+        return RoomType.valueOf(dtoEnum.name());
+    }
 
 }

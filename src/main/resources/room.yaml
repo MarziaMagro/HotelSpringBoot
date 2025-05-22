@@ -70,12 +70,11 @@ components:
         available:
           type: boolean
           example: true
-        type:
-          $ref: '#/components/schemas/RoomTypeEnum'
+        roomType:
+          type: string
+          enum:
+            - SINGLE
+            - DOUBLE
+            - SUITE
 
-    RoomTypeEnum:
-      type: string
-      enum:
-        - SINGLE
-        - DOUBLE
-        - SUITE
+
