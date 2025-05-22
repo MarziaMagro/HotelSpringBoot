@@ -16,7 +16,7 @@ public class RoomEntity {
     private Integer id;
     private RoomType roomType;
     private String roomNumber;
-    private boolean availability;
+    private Boolean availability;
 
     public RoomEntity(Integer id, RoomType roomType, String roomNumber, boolean availability) {
         this.id = id;
@@ -27,4 +27,5 @@ public class RoomEntity {
 
     public RoomEntity() {
     }
+
 }

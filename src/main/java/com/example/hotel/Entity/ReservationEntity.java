@@ -14,24 +14,16 @@ public class ReservationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    @Id
-    private Integer customerId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
+    private CustomerEntity customer;
 
-    @Id
     private Integer roomId;
-
-    @ManyToOne
-    private RoomEntity roomEntity;
-
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
 
-    public ReservationEntity(Integer id, Integer customerId, Integer roomId, LocalDate checkInDate, LocalDate checkOutDate) {
+    public ReservationEntity(Integer id,Integer roomId, LocalDate checkInDate, LocalDate checkOutDate) {
         this.id = id;
-        this.customerId = customerId;
-        this.roomEntity = roomEntity;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
     }

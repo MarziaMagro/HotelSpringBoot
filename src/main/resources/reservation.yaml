@@ -62,8 +62,6 @@ components:
       properties:
         id:
           type: integer
-        customerId:
-          type: integer
         roomId:
           type: integer
         startDate:
@@ -72,3 +70,5 @@ components:
         endDate:
           type: string
           format: date
+        customer:
+          $ref: './customer.yaml#/components/schemas/CustomerDto'
