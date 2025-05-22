@@ -1,6 +1,13 @@
 package com.example.hotel.Service;
+
+import com.example.hotel.Entity.RoomEntity;
+import com.example.hotel.Mapper.RoomMapping;
 import com.example.hotel.Repository.RoomRepository;
+import com.example.hotel.model.RoomDto;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RoomService {
@@ -12,14 +19,25 @@ public class RoomService {
     }
 
 
-//    //TODO: GET /rooms
-//    public List<RoomDto> getAllRooms() {
-//        return null;
-//    }
-//
-//    // TODO: GET /rooms/available
-//    public List<RoomDto> getAvailableRooms() {
-//        return null;
+    //GET /rooms
+    public List<RoomDto> getAllRooms() {
+        List<RoomEntity> roomEntityList = roomRepository.findAll();
+        List<RoomDto> roomDtoList = RoomMapping.listDto(roomEntityList);
+        return roomDtoList;
+    }
+
+    //TODO: GET/ roomById
+    public RoomEntity getRoomById(Integer roomId) {
+        RoomEntity roomEntity = roomRepository.findById(roomId).orElseThrow(() -> new EntityNotFoundException("Room not found with ID: " + roomId));
+        return roomEntity;
+    }
+
+
+    //     TODO: GET /rooms/available
+    public List<RoomDto> getAvailableRooms() {
+
+
+        return null;
 //    }
 //
 //    //TODO:  POST /rooms
@@ -34,8 +52,5 @@ public class RoomService {
 //        return null;
 //    }
 //
-//    //TODO: GET/ roomById
-//    public RoomDto getRoomById(Integer id) {
-//        return null;
-//    }
-}
+
+    }
