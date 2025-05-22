@@ -145,6 +145,7 @@
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
+								<generateApiUtil>true</generateApiUtil>
 							</configOptions>
 							<output>${project.basedir}/target/generated-sources/openapi/customer</output>
 						</configuration>
@@ -165,6 +166,7 @@
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
+								<generateApiUtil>true</generateApiUtil>
 							</configOptions>
 							<output>${project.basedir}/target/generated-sources/openapi/room</output>
 						</configuration>
@@ -172,21 +174,22 @@
 
 					<!-- RESERVATION -->
 					<execution>
-						<id>generate-reservation</id>
+						<id>generate-reservationEntity</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/reservation.yaml</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/reservationEntity.yaml</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>com.example.reservation.api</apiPackage>
-							<modelPackage>com.example.reservation.model</modelPackage>
-							<invokerPackage>com.example.reservation.invoker</invokerPackage>
+							<apiPackage>com.example.reservationEntity.api</apiPackage>
+							<modelPackage>com.example.reservationEntity.model</modelPackage>
+							<invokerPackage>com.example.reservationEntity.invoker</invokerPackage>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<useSpringBoot3>true</useSpringBoot3>
+								<generateApiUtil>true</generateApiUtil>
 							</configOptions>
-							<output>${project.basedir}/target/generated-sources/openapi/reservation</output>
+							<output>${project.basedir}/target/generated-sources/openapi/reservationEntity</output>
 						</configuration>
 					</execution>
 				</executions>
