@@ -11,7 +11,7 @@ public class ReservationMapping {
     public static ReservationDto convToDto(ReservationEntity reservation) {
         ReservationDto reservationDto = new ReservationDto();
         reservationDto.setId(reservation.getId());
-        reservationDto.setCustomer(CustomerMapping.convToDto(reservation.getCustomer()));
+        //reservationDto.setCustomer(CustomerMapping.convToDto(reservation.getCustomer()));
         reservationDto.setRoomId(reservation.getId());
         reservationDto.setStartDate(reservation.getCheckInDate());
         reservationDto.setEndDate(reservation.getCheckOutDate());
@@ -24,7 +24,7 @@ public class ReservationMapping {
         reservation.setRoomId(reservationDto.getRoomId());
         reservation.setCheckOutDate(reservationDto.getEndDate());
         reservation.setCheckInDate(reservationDto.getStartDate());
-        reservation.setCustomer(reservationDto.getCustomer());
+        //reservation.setCustomer(reservationDto.getCustomer());
         return reservation;
     }
 
@@ -46,5 +46,5 @@ public class ReservationMapping {
         return listDto;
     }
 
-    public static com.example.reservation.model.CustomerDto convToDtoRes ()
+   // public static com.example.reservation.model.CustomerDto convToDtoRes ()
 }
