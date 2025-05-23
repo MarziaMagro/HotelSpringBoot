@@ -18,12 +18,17 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
+    //TODO:  POST /rooms
+    public RoomEntity createRoom(RoomDto roomDto) {
+        RoomEntity roomEntity = new RoomEntity();
+        roomRepository.save(roomEntity);
+        return RoomMapping.convToEntity(roomDto);
+    }
 
     //GET /rooms
-    public List<RoomDto> getAllRooms() {
+    public List<RoomEntity> getAllRooms() {
         List<RoomEntity> roomEntityList = roomRepository.findAll();
-        List<RoomDto> roomDtoList = RoomMapping.listDto(roomEntityList);
-        return roomDtoList;
+        return roomEntityList;
     }
 
     //TODO: GET/ roomById
@@ -40,12 +45,7 @@ public class RoomService {
         return null;
 //    }
 //
-//    //TODO:  POST /rooms
-//    public RoomDto createRoom(RoomDto roomDto) {
-//            Room room = RoomMapping.;
-//            room = roomRepository.save(room);
-//            return RoomMapping.convToDto(room);
-//    }
+
 //
 //    //TODO:
 //    public RoomDto updateRoomAvailability(Integer id, boolean availability) {
@@ -54,3 +54,4 @@ public class RoomService {
 //
 
     }
+}
