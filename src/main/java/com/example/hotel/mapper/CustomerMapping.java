@@ -10,25 +10,25 @@ import java.util.stream.Collectors;
 
 public class CustomerMapping {
 
-    public static CustomerDto convToDto(CustomerEntity customer) {
-        List<Integer> reservationIds = customer.getReservationEntity().stream()
+    public static CustomerDto convToDto(CustomerEntity customerEntity) {
+        List<Integer> reservationIds = customerEntity.getReservationEntity().stream()
                 .map(ReservationEntity::getId)
                 .toList();
 
         CustomerDto customerDto = new CustomerDto();
-        customerDto.setId(customer.getId());
-        customerDto.setFirstName(customer.getName());
-        customerDto.setLastName(customer.getSurname());
-        customerDto.setEmail(customer.getEmail());
+        customerDto.setId(customerEntity.getId());
+        customerDto.setFirstName(customerEntity.getName());
+        customerDto.setLastName(customerEntity.getSurname());
+        customerDto.setEmail(customerEntity.getEmail());
         customerDto.setReservationIds(reservationIds);
         return customerDto;
     }
 
     public static CustomerEntity convToEntity(CustomerDto customerDto) {
-        CustomerEntity customer = new CustomerEntity();
-        customer.setId(customerDto.getId());
-        customer.setName(customerDto.getFirstName());
-        customer.setSurname(customerDto.getEmail());
+        CustomerEntity customerEntity = new CustomerEntity();
+        customerEntity.setId(customerDto.getId());
+        customerEntity.setName(customerDto.getFirstName());
+        customerEntity.setSurname(customerDto.getEmail());
 
         // Conversione reservationIds → ReservationEntity (solo con ID)
         if (customerDto.getReservationIds() != null) {
@@ -36,15 +36,15 @@ public class CustomerMapping {
                     .map(id -> {
                         ReservationEntity reservation = new ReservationEntity();
                         reservation.setId(id);
-                        reservation.setCustomer(customer); // imposta il riferimento inverso
+                        reservation.setCustomer(customerEntity); // imposta il riferimento inverso
                         return reservation;
                     })
                     .collect(Collectors.toList());
 
-            customer.setReservationEntity(reservations);
+            customerEntity.setReservationEntity(reservations);
         }
 
-        return customer;
+        return customerEntity;
     }
 
     public static List<CustomerEntity> listEntity(List<CustomerDto> listDto) {

@@ -7,24 +7,24 @@ import java.util.List;
 
 public class ReservationMapping {
 
-    public static ReservationDto convToDto(ReservationEntity reservation) {
+    public static ReservationDto convToDto(ReservationEntity reservationEntity) {
         ReservationDto reservationDto = new ReservationDto();
-        reservationDto.setId(reservation.getId());
-        reservationDto.setCustomer(CustomerMapping.convToDto(reservation.getCustomer()));
-        reservationDto.setRoomId(reservation.getId());
-        reservationDto.setStartDate(reservation.getCheckInDate());
-        reservationDto.setEndDate(reservation.getCheckOutDate());
+        reservationDto.setId(reservationEntity.getId());
+        reservationDto.setCustomer(CustomerMapping.convToDto(reservationEntity.getCustomer()));
+        reservationDto.setRoomId(reservationEntity.getId());
+        reservationDto.setStartDate(reservationEntity.getCheckInDate());
+        reservationDto.setEndDate(reservationEntity.getCheckOutDate());
         return reservationDto;
     }
 
     public static ReservationEntity convToEntity(ReservationDto reservationDto) {
-        ReservationEntity reservation = new ReservationEntity();
-        reservation.setId(reservationDto.getId());
-        reservation.setRoomId(reservationDto.getRoomId());
-        reservation.setCheckOutDate(reservationDto.getEndDate());
-        reservation.setCheckInDate(reservationDto.getStartDate());
-        reservation.setCustomer(CustomerMapping.convToEntity(reservationDto.getCustomer()));
-        return reservation;
+        ReservationEntity reservationEntity = new ReservationEntity();
+        reservationEntity.setId(reservationDto.getId());
+        reservationEntity.setRoomId(reservationDto.getRoomId());
+        reservationEntity.setCheckOutDate(reservationDto.getEndDate());
+        reservationEntity.setCheckInDate(reservationDto.getStartDate());
+        reservationEntity.setCustomer(CustomerMapping.convToEntity(reservationDto.getCustomer()));
+        return reservationEntity;
     }
 
     public static List<ReservationEntity> listEntity(List<ReservationDto> listDto) {
@@ -44,6 +44,4 @@ public class ReservationMapping {
         }
         return listDto;
     }
-
-   // public static com.example.reservation.model.CustomerDto convToDtoRes ()
 }

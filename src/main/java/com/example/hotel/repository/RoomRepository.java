@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoomRepository extends JpaRepository<RoomEntity, Integer> {
+
+    public RoomEntity searchByRoomNumber(String roomNumber);
+
 }

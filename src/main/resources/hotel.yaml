@@ -103,7 +103,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoomDto'
+                  $ref: '#/components/schemas/RoomDtoOutput'
     post:
       tags:
         - "Rooms"
@@ -114,14 +114,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RoomDto'
+              $ref: '#/components/schemas/RoomDtoInput'
       responses:
         '201':
           description: Stanza creata con successo
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoomDto'
+                $ref: '#/components/schemas/RoomDtoOutput'
 
   /rooms/available:
     get:
@@ -138,11 +138,30 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoomDto'
+                  $ref: '#/components/schemas/RoomDtoOutput'
 
 components:
   schemas:
-    RoomDto:
+    RoomDtoInput:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        roomNumber:
+          type: string
+          example: "101A"
+        available:
+          type: boolean
+          example: true
+        roomType:
+          type: string
+          enum:
+            - SINGLE
+            - DOUBLE
+            - SUITE
+
+    RoomDtoOutput:
       type: object
       properties:
         id:

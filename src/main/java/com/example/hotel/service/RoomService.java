@@ -3,7 +3,8 @@ package com.example.hotel.service;
 import com.example.hotel.entity.RoomEntity;
 import com.example.hotel.mapper.RoomMapping;
 import com.example.hotel.repository.RoomRepository;
-import hotel.model.RoomDto;
+import hotel.model.RoomDtoInput;
+import hotel.model.RoomDtoOutput;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +19,14 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
-    //TODO:  POST /rooms
-    public RoomEntity createRoom(RoomDto roomDto) {
-        RoomEntity roomEntity = new RoomEntity();
-        roomRepository.save(roomEntity);
-        return RoomMapping.convToEntity(roomDto);
+    //POST /rooms
+    public RoomEntity createRoom(RoomDtoInput roomDto) {
+        RoomEntity roomEntity = RoomMapping.convToEntity(roomDto);
+      RoomEntity dbEntity = roomRepository.searchByRoomNumber(roomEntity.getRoomNumber());
+      if(dbEntity != null)  {
+          throw new RuntimeException("Room already present");
+      }
+      return roomRepository.save(roomEntity);
     }
 
     //GET /rooms
@@ -39,7 +43,7 @@ public class RoomService {
 
 
     //     TODO: GET /rooms/available
-    public List<RoomDto> getAvailableRooms() {
+    public List<RoomDtoOutput> getAvailableRooms() {
 
 
         return null;
