@@ -1,9 +1,9 @@
-package com.example.hotel.Service;
+package com.example.hotel.service;
 
-import com.example.hotel.Entity.RoomEntity;
-import com.example.hotel.Mapper.RoomMapping;
-import com.example.hotel.Repository.RoomRepository;
-import com.example.hotel.model.RoomDto;
+import com.example.hotel.entity.RoomEntity;
+import com.example.hotel.mapper.RoomMapping;
+import com.example.hotel.repository.RoomRepository;
+import hotel.model.RoomDto;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 

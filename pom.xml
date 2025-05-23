@@ -57,12 +57,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
 
         <!-- Devtools -->
         <dependency>
@@ -101,60 +95,8 @@
     </dependencyManagement>
 
     <build>
-
+        <finalName>${project.artifactId}</finalName>
         <plugins>
-            <!-- Spring Boot plugin -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.9.0</version>
-                <executions>
-                    <!-- HOTEL -->
-                    <execution>
-                        <id>generate-hotel-api</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/hotel.yaml</inputSpec>
-                            <generatorName>spring</generatorName>
-                            <apiPackage>com.example.hotel.api</apiPackage>
-                            <modelPackage>com.example.hotel.model</modelPackage>
-                            <invokerPackage>com.example.hotel.invoker</invokerPackage>
-                            <configOptions>
-                                <interfaceOnly>true</interfaceOnly>
-                                <useSpringBoot3>true</useSpringBoot3>
-                                <generateApiUtil>true</generateApiUtil>
-                                <skipDefaultInterface>true</skipDefaultInterface>
-                                <overwrite>true</overwrite>
-                            </configOptions>
-                            <output>${project.basedir}/target/generated-sources/openapi</output>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
-                <configuration>
-                    <runOrder>alphabetical</runOrder>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -168,8 +110,60 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.basedir}/target/generated-sources/openapi</source>
+                                <source>src/main/resources</source>
                             </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>
+                                com.example.hotel.HotelApplication
+                            </mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>
+                        com.example.hotel.HotelApplication
+                    </mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.9.0</version>
+                <executions>
+                    <!-- Generazione API kfc -->
+                    <execution>
+                        <id>hotel.yaml</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/hotel.yaml</inputSpec>
+                            <apiPackage>hotel.api</apiPackage>
+                            <modelPackage>hotel.model</modelPackage>
+                            <generatorName>spring</generatorName>
+                            <generateSupportingFiles>true</generateSupportingFiles>
+                            <configOptions>
+                                <useTags>true</useTags>
+                                <openApiNullable>false</openApiNullable>
+                                <interfaceOnly>true</interfaceOnly>
+                                <useJakartaEe>true</useJakartaEe>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <overwrite>true</overwrite>
+                            </configOptions>
                         </configuration>
                     </execution>
                 </executions>

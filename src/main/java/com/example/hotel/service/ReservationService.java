@@ -1,11 +1,11 @@
-package com.example.hotel.Service;
+package com.example.hotel.service;
 
-import com.example.hotel.Entity.ReservationEntity;
-import com.example.hotel.Entity.RoomEntity;
-import com.example.hotel.Mapper.ReservationMapping;
-import com.example.hotel.Repository.ReservationRepository;
-import com.example.hotel.Repository.RoomRepository;
-import com.example.hotel.model.ReservationDto;
+import com.example.hotel.entity.ReservationEntity;
+import com.example.hotel.entity.RoomEntity;
+import com.example.hotel.mapper.ReservationMapping;
+import com.example.hotel.repository.ReservationRepository;
+import com.example.hotel.repository.RoomRepository;
+import hotel.model.ReservationDto;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

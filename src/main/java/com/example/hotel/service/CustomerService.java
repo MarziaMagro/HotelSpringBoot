@@ -1,9 +1,9 @@
-package com.example.hotel.Service;
+package com.example.hotel.service;
 
-import com.example.hotel.model.CustomerDto;
-import com.example.hotel.Entity.CustomerEntity;
-import com.example.hotel.Mapper.CustomerMapping;
-import com.example.hotel.Repository.CustomerRepository;
+import hotel.model.CustomerDto;
+import com.example.hotel.entity.CustomerEntity;
+import com.example.hotel.mapper.CustomerMapping;
+import com.example.hotel.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

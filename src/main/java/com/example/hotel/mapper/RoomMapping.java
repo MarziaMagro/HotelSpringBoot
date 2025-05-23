@@ -1,8 +1,8 @@
-package com.example.hotel.Mapper;
+package com.example.hotel.mapper;
 
-import com.example.hotel.Entity.RoomEntity;
-import com.example.hotel.Entity.RoomType;
-import com.example.hotel.model.RoomDto;
+import com.example.hotel.entity.RoomEntity;
+import com.example.hotel.entity.RoomType;
+import hotel.model.RoomDto;
 
 import java.util.ArrayList;
 import java.util.List;

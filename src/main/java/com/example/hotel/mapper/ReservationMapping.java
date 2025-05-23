@@ -1,6 +1,6 @@
-package com.example.hotel.Mapper;
-import com.example.hotel.Entity.ReservationEntity;
-import com.example.hotel.model.ReservationDto;
+package com.example.hotel.mapper;
+import com.example.hotel.entity.ReservationEntity;
+import hotel.model.ReservationDto;
 
 import java.util.ArrayList;
 import java.util.List;

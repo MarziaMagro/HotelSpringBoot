@@ -1,13 +1,13 @@
-package com.example.hotel.Controller;
-import com.example.hotel.model.ReservationDto;
+package com.example.hotel.controller;
+import hotel.api.ReservationApi;
+import hotel.model.ReservationDto;
 import org.springframework.http.ResponseEntity;
-import com.example.hotel.api.ReservationsApi;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-public class ReservationController implements ReservationsApi {
+public class ReservationController implements ReservationApi {
 
 
     @Override
